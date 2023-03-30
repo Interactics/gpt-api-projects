@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Chat App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5/1F0H+G8rjM6T7IdTb6EC6GbxUf1F8kmT0Tmkk2" crossorigin="anonymous">
+</head>
+<body>
+    <div class="content-wrapper">
+        <div class="content">
+            <!-- Add your main content here -->
+        </div>
+    </div>
+    
+    <div class="chat-container">
+        <div class="chat-header">
+            <span>Messenger</span>
+            <button id="hide-chat-btn" class="hide-chat-btn">&times;</button>
+        </div>
+        <div id="chat-box" class="chat-box"></div>
+        <form id="chat-form" class="chat-form">
+            <input type="text" id="chat-input" placeholder="Type your message...">
+            <button type="submit">Send</button>
+        </form>
+    </div>
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
