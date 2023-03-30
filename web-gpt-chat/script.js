@@ -17,7 +17,7 @@ messageForm.addEventListener('submit', async (event) => {
 
 async function fetchChatGPTResponse(message) {
     try {
-        const apiKey = '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';
+        const apiKey = '';
         const apiUrl = 'https://api.openai.com/v1/engines/davinci-codex/completions';
 
         const headers = {
