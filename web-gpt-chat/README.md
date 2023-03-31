@@ -1,4 +1,4 @@
-# GPT Web
+# Web GPT Chat
 
 This is a simple web chat application built with Flask and OpenAI's GPT-3.5 model.
 
