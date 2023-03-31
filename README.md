@@ -1,49 +1,72 @@
-# GPT-API-Projects
+# GPT API Projects
 
-This repository contains a collection of projects that utilize the OpenAI GPT API to perform various tasks. Each project in this repository demonstrates a different use case for the GPT API.
+This repository contains various projects utilizing the OpenAI GPT API.
 
 ## Projects
 
-1. __Website Content Summarizer__: This project is a Flask web application that takes a URL as input and returns a summarized version of the content found on the page. It uses the GPT-3.5-turbo model to generate the summaries.
+### 1. Web GPT Chat
 
+This is a simple web chat application built with Flask and OpenAI's GPT-3.5 model.
 
-## Setup
+#### Features
 
-1. Clone this repository:
+- Allows users to send messages to an OpenAI-powered chatbot
+- Displays chat history between the user and the chatbot
+- Shows typing indicator while waiting for a response from the chatbot
+- Allows users to hide and show the chat window
+
+#### Getting Started
+
+To use this application, you'll need to set up an OpenAI API key. You can sign up for an API key at OpenAI's website. Once you have an API key, create a new file called `.env` in the root directory of the project and add your API key like this:
 
 ```
-git clone https://github.com/Interactics/gpt-api-projects.git
+OPENAI_API_KEY=your-api-key-here
 ```
 
-2. Install the required packages:
+
+Next, install the required Python packages by running the following command:
+
 ```
 pip install -r requirements.txt
 ```
 
-3. Set up a .env file in the root directory of the repository with the following content:
 
+Finally, start the Flask development server by running:
 ```
-OPENAI_API_KEY=your_openai_api_key
-```
-Replace your `_openai_api_key` with your actual OpenAI API key.
-
-## Running the projects
-
-To run a specific project, navigate to the project's directory and execute its main script.
-
-For example, to run the Website Content Summarizer project:
-
-```
-cd website_content_summarizer
-python app.py
+flask run
 ```
 
-This will launch the Flask web application on your local machine. Open your web browser and navigate to http://localhost:5000 to access the application.
 
-## Contributing
+You should now be able to access the application by visiting http://localhost:5000 in your web browser.
 
-Contributions to this repository are welcome! If you have an idea for a new project or an improvement to an existing one, please feel free to submit a pull request or open an issue.
+#### Contributing
+
+If you'd like to contribute to this project, please fork the repository and create a pull request with your changes.
+
+#### License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+### 2. Webpage Summarizer
+
+A web application that uses GPT-3.5 to generate summaries of web pages.
+
+#### Getting Started
+
+Follow the same instructions for setting up the OpenAI API key, installing the required packages, and starting the Flask development server as described in the Web GPT Chat section.
+
+You should be able to access the Webpage Summarizer application by visiting http://localhost:5000 in your web browser.
+
+#### Contributing
+
+If you'd like to contribute to this project, please fork the repository and create a pull request with your changes.
+
+#### License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
 
 ## License
 
-This repository is licensed under the MIT License. See LICENSE for more information.
+This repository is licensed under the MIT License. See the LICENSE file for details.
+
+
