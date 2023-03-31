@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <title>Code Generator</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="center-align">Code Generator</h1>
+        <div class="row">
+            <div class="input-field col s12 m8 offset-m2">
+                <input id="description" type="text" class="validate">
+                <label for="description">Description:</label>
+            </div>
+            <div class="input-field col s12 m8 offset-m2">
+                <input id="language" type="text" class="validate">
+                <label for="language">Language:</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 m8 offset-m2 center-align">
+                <button onclick="generateCode()" class="btn waves-effect waves-light">Generate Code</button>
+                <button id="downloadBtn" onclick="downloadCode()" class="btn waves-effect waves-light" disabled>Download</button>
+                <button id="copyBtn" onclick="copyCode()" class="btn waves-effect waves-light" disabled>Copy Code</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 m8 offset-m2">
+                <label for="output">Generated Code:</label>
+                <div id="spinner" class="preloader-wrapper small active" style="display: none;">
+                    <div class="spinner-layer spinner-blue">
+                        <div class="circle-clipper left">
+                            <div class="circle"></div>
+                        </div><div class="gap-patch">
+                            <div class="circle"></div>
+                        </div><div class="circle-clipper right">
+                            <div class="circle"></div>
+                        </div>
+                    </div>
+                </div>
+                <textarea id="output" class="materialize-textarea" style="height: 250px; max-height: 250px; overflow-y: auto;" readonly></textarea>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let generatedCode = '';
+    
+        function download(filename, text) {
+            const element = document.createElement('a');
+            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+            element.setAttribute('download', filename);
+            element.style.display = 'none';
+            document.body.appendChild(element);
+            element.click();
+            document.body.removeChild(element);
+        }
+    
+        function downloadCode() {
+            if (generatedCode) {
+                const language = document.getElementById('language').value;
+                const fileExtension = language.toLowerCase() === 'c++' ? 'cpp' : language.toLowerCase();
+                const filename = `generated_code.${fileExtension}`;
+                download(filename, generatedCode);
+            }
+        }
+
+        async function copyCode() {
+            if (generatedCode) {
+                try {
+                    await navigator.clipboard.writeText(generatedCode);
+                    alert('Code copied to clipboard!');
+                } catch (err) {
+                    alert('Error copying code to clipboard.');
+                }
+            }
+        }
+    
+        async function generateCode() {
+            const description = document.getElementById('description').value;
+            const language = document.getElementById('language').value;
+
+            if (description.trim() === '' || language.trim() === '') {
+                alert('Please fill in both fields.');
+                return;
+            }
+        
+            // Show spinner
+            document.getElementById('spinner').style.display = 'inline-block';
+        
+            const response = await fetch('/generate', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ description, language })
+            });
+            const result = await response.json();
+            generatedCode = result.code;
+            document.getElementById('output').value = generatedCode;
+            document.getElementById('downloadBtn').disabled = !generatedCode;
+            document.getElementById('copyBtn').disabled = !generatedCode;
+        
+            // Hide spinner
+            document.getElementById('spinner').style.display = 'none';
+        }
+        
+    </script>
+</body>
+</html>

@@ -4,7 +4,16 @@ This repository contains a collection of projects that utilize the OpenAI GPT AP
 
 ## Projects
 
-1. __Website Content Summarizer__: This project is a Flask web application that takes a URL as input and returns a summarized version of the content found on the page. It uses the GPT-3.5-turbo model to generate the summaries.
+Code Generator with GPT-3.5 API
+This is a web application that generates code files using the GPT-3.5 API from OpenAI. Users can input their code requirements and desired programming language, and the application generates a code snippet based on the input.
+
+Web GPT Chat
+This is a web application that allows users to chat with a large language model trained by OpenAI, based on the GPT-3.5 architecture. Users can input their message, and the model responds with a generated message.
+
+Webpage Summarizer
+This is a web application that summarizes a given web page using the BeautifulSoup library in Python. Users can input a URL, and the application generates a summary of the page.
+
+Please see the individual README files for each project for more information on how to set up and use each application.
 
 
 ## Setup
