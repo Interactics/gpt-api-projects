@@ -13,6 +13,9 @@ This is a web application that allows users to chat with a large language model 
 ### Webpage Summarizer
 This is a web application that summarizes a given web page using the BeautifulSoup library in Python. Users can input a URL, and the application generates a summary of the page.
 
+### pdf-summarizer
+This  is a web application that uses OpenAI GPT API to generate summaries of PDF files uploaded by users. The application also features a Neumorphism-based user interface, providing an aesthetically pleasing user experience.
+
 Please see the individual README files for each project for more information on how to set up and use each application.
 
 
