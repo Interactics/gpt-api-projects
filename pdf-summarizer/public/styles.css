@@ -1,0 +1,101 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #e0e5ec;
+  background-image: linear-gradient(120deg, #b06ab3 0%, #4568dc 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  color: #ffffff; /* Set the font color to white */
+}
+
+.container {
+  padding: 2rem;
+  border-radius: 1rem;
+  width: 80%;
+  max-width: 600px;
+  background: rgba(128, 0, 128, 0.1); /* Set the background color to purple with 10% opacity */
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px rgba(128, 0, 128, 0.1), 0 1px 3px rgba(128, 0, 128, 0.1); /* Set the shadow color to purple */
+}
+
+h1 {
+  margin-bottom: 1rem;
+}
+
+.file-input {
+  background: rgba(255, 255, 255, 0.1);
+  display: inline-block;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+input[type='file'] {
+  display: none;
+}
+
+button {
+  background-color: rgba(128, 0, 128, 0.7);
+  border: none;
+  color: #ffffff;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 14px;
+  transition: 0.3s;
+  cursor: pointer;
+  border-radius: 5px;
+  display: inline-block;
+  margin-top: 1rem;
+}
+
+button:hover {
+  background-color: rgba(128, 0, 128, 0.9);
+}
+button:active {
+  box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.summary {
+  margin-top: 2rem;
+}
+
+.spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-top-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  margin-top: 1rem;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.file-upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.file-name {
+  font-size: 0.9rem;
+}
+
+.language-select {
+  margin-top: 1rem;
+  font-size: 1rem;
+}
